@@ -1,0 +1,23 @@
+C:\WORK\SCALA\DROID
+
+mvn archetype:generate \ -DarchetypeGroupId=org.scala-tools.archetypes \ -DarchetypeArtifactId=scala-archetype-simple \ -DarchetypeVersion=1.3 \ -DremoteRepositories=http://scala-tools.org/repo-releases \ -DgroupId=com.hp.DROID -DartifactId=DROID
+
+##--jars /home/grid/zoey/commons-csv-1.1.jar,/home/grid/zoey/spark-csv_2.11-1.0.3.jar,/home/grid/vertica-jdbc-7.0.1-0.jar  \
+
+/opt/mount1/spark-2.0.0-bin-hadoop2.7/bin/spark-submit \
+--master spark://16.250.53.231:7077  \
+--class com.hp.scala.Asso  \
+--num-executors 4  \
+--executor-memory 4G   \
+--total-executor-cores 16   \
+/home/grid/Rita/DRIOD.jar   \
+
+
+## parameter of spark-submit
+"LG"   \
+"CROSS_BORDER_GRY_MKT_FG,GRY_MKT_FG_IC"    \
+
+
+
+#local upload jar to server
+scp /drives/c/work/scala/DROID/DRIOD/classes/artifacts/DRIOD_jar/DRIOD.jar grid@16.250.53.231:/home/grid/Rita/
